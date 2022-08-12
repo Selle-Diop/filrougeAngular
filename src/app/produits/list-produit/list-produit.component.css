@@ -1,0 +1,38 @@
+
+.header{
+    /* border: 1px solid red; */
+    margin-top: 1%;
+    padding: 2%;
+    width:99%;
+    background-color:  #202529;
+    display: flex;
+    justify-content:space-between;
+    /* flex-direction: row; */
+    
+}
+
+.search input{
+    border-radius: 10px;
+    padding: 3%;
+    /* border:3px solid red; */
+    text-decoration: none;
+
+    /* width:70%; */
+}
+.search input:hover{
+    border:3px solid #DB6230;
+    
+}
+/* .header i{
+    width:10%;
+    color: white;
+} */
+/* .search button{
+    border-radius: 16px 16px 16px 16px;
+    padding: 0.8%;
+    width:35%;
+
+    
+    
+
+} */

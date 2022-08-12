@@ -1,0 +1,178 @@
+
+  <div class="container" style="margin-top: 1%">
+    <div class="col-12" style="background-color: green">
+      <div
+        class="card card-registration card-registration-2"
+        style="border-radius: 15px"
+      >
+        <div class="card-body p-0">
+          <div class="row g-0">
+            <div class="col-lg-8">
+              <div class="p-5">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-5"
+                >
+                  <h1 class="fw-bold mb-0 text-black text-center">Panier</h1>
+                </div>
+                <hr class="my-4" />
+                <div
+                  class="row mb-4 d-flex justify-content-between align-items-center"
+                  *ngFor="let oneElement of items$ | async"
+                >
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      [src]="transform(oneElement.image)"
+                      class="img-fluid rounded-3"
+                      alt="hu"
+                    />
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <h6 class="text-muted">{{ oneElement.nom }}</h6>
+
+                    <h6 class="mb-0">{{ oneElement.prix }}</h6>
+                  </div>
+
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button
+                      (click)="
+                        quantitePrice(oneElement, quantity.value); prixtotal()
+                      "
+                      class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                    >
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input
+                      id="form1"
+                      min="0"
+                      name="quantity"
+                      value="{{ oneElement.quantite }}"
+                      type="number"
+                      class="form-control form-control-sm"
+                      #quantity
+                      (change)="
+                        quantitePrice(oneElement, quantity.value); prixtotal()
+                      "
+                    />
+
+                    <button
+                      (click)="
+                        quantitePrice(oneElement, quantity.value); prixtotal()
+                      "
+                      class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                    >
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h6 class="mb-0">
+                      {{ oneElement.quantite * oneElement.prix }}
+                    </h6>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a class="text-muted" (click)="delete(oneElement)"
+                      ><i class="fas fa-times"></i
+                    ></a>
+
+                    <!-- <button class="btn btn-secondary" (click)="removeFromCart(item)"> x</button> -->
+                  </div>
+                  <hr class="my-4" />
+                </div>
+
+                <!-- <hr class="my-4" /> -->
+                <div class="form-check">
+                  <h3>Mode De livraison</h3>
+                  <div>
+  <!-- <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="true"  (click)="setradio('true')">
+  <label class="form-check-label"  for="flexRadioDefault2" >
+    Sur place 
+  </label> -->
+  <button class="btn btn-danger"(click)="setradio('true')">Sur place</button>
+
+</div>
+  <!-- <input class="form-check-input" [checked]="true" type="radio"  name="flexRadioDefault" id="flexRadioDefault1" value="false" (click)="setradio('false')" (click)="toggle()">
+  <label class="form-check-label" for="flexRadioDefault1">
+    A livrer
+  </label> -->
+  <button class="btn btn-primary" (click)="toggle()">A livrer</button>
+  
+  <div >
+
+       <app-zones></app-zones>
+
+            
+       </div>      
+  
+</div>
+
+
+                <div class="pt-5">
+                  <h6 class="mb-0">
+                    <a href="/list" class="text-body">
+                      <i class="fas fa-long-arrow-alt-left me-2 fs-1"></i>
+                      <h1>Retour</h1>
+                    </a>
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 bg-grey">
+              <div class="p-5">
+                <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="text-uppercase">items 3</h5>
+                  <h5>{{ priT }}</h5>
+                </div>
+                <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                <div class="mb-4 pb-2">
+                  <select class="select">
+                    <option value="1">Standard-Delivery- €5.00</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                  </select>
+                </div>
+
+                <h5 class="text-uppercase mb-3">Give code</h5>
+
+                <div class="mb-5">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="form3Examplea2"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form3Examplea2"
+                      >Enter your code</label
+                    >
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-between mb-5">
+                  <h5 class="text-uppercase">Total price</h5>
+                  <h5>€ 137.00</h5>
+                </div>
+                   <a routerLink="/list">
+                <button
+                
+                  type="button"
+                  class="btn btn-danger btn-block btn-lg"
+                  data-mdb-ripple-color="dark" (click)=" sendCommande()"
+                >
+                  Commander
+                </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

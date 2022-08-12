@@ -1,0 +1,29 @@
+<div class="container mt-5">
+<table class="table table-dark ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">N°Commande</th>
+      <th scope="col">Heure</th>
+      <th scope="col">Client</th>
+      <th scope="col">Etat</th>
+      <th scope="col" class="mr-3">Options</th>
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let c of com">
+    <tr >
+      <th scope="row">1</th>
+      <td>{{c.numCommande}}</td>
+      <td></td>
+      <td>{{c.client.nomComplet}}</td>
+      <td>En cours</td>
+      <td> <button type="button" class="btn btn-success" (click)="changeText($event.target)">{{textButton}}</button>
+      <button type="button" class="btn btn-primary">Details</button></td>
+
+
+    </tr>
+  
+  </tbody>
+</table>
+</div>

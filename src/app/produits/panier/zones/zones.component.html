@@ -1,0 +1,21 @@
+<!-- <input type="radio" name="" id="e"value="" > -->
+<div *ngFor="let z of zones"  >
+
+   
+      
+             <input type="radio" value=""(click)="toggle()" name="test"> 
+             <!-- <button (click)="toggle()">{{z.nomZone}} </button> -->
+             
+             <label for="e">
+               
+               {{z.nomZone}} 
+              </label> 
+      
+        <div *ngIf="show"> 
+                  <div *ngFor="let q of z.quartiers" >
+                          {{q.nomQuartier}}
+           
+                 </div>
+         </div>
+</div>
+

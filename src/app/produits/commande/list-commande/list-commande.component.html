@@ -1,0 +1,24 @@
+
+<table class="table container mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#Numero</th>
+      <th scope="col">Name</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cl of tabClient;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{cl.nomComplet}}</td>
+      <td>{{cl.telephone}}</td>
+      <td class="btn btn-danger text-danger">Valider</td>
+      <td class="btn btn-primary text-danger"(click)="detail(cl)">Details</td>
+
+      
+
+    </tr>
+   
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<div class="container">
+
+
+<div class="card mt-2 " >
+    <div *ngFor="let item of client.commandes">
+
+     {{item.numCommande}}
+     {{item.isEtatCommande}}
+     {{item.zone.nomZone}}
+     <div *ngFor="let prod of item.Produits">
+
+     {{prod.quantite}}
+     {{prod.produit.prix}}
+     {{prod.produit.nom}}
+
+     
+
+     </div>
+
+
+
+
+    </div>
+ 
+  
+    
+
+   
+  </div>
+
+</div>
+

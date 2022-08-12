@@ -1,0 +1,20 @@
+<form #test="ngForm" (ngSubmit)="valider(test)" >
+<input type="text" #nom="ngModel"  name="nom" minlength="3" placeholder="Nom" [(ngModel)]="personne.nom">
+<br>
+<small *ngIf="!nom.dirty && nom.touched">Invalide</small>
+<br>
+<input type="text" name="prenom" placeholder="Prenoom" ngModel>
+<br>
+<select name="Sexe" ngModel >
+    <option value="M">M</option>
+    <option value="F">F</option>
+
+</select>
+<br>
+<input type="submit" value="envoyer" [disabled]=!test.valid>
+
+
+
+
+
+</form>

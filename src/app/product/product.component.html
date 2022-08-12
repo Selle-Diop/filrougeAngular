@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div *ngFor="let menu of catalogue.menus">
+   <div class="text-danger">{{ menu.nom }}</div>  
+       {{ menu.prix }}
+    <div *ngFor="let burger of menu.burger">
+      <div class="text-danger">{{ burger.nom }}</div>
+    </div>
+  </div>
+  <p class="text-danger mt-5">tttte</p>
+  <button class="btn btn-primary">vv</button>
+  
+</div>

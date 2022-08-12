@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <input
+    class="form-control bg-primary"
+    type="date"
+    name="search"
+    [(ngModel)]="searchText"
+    autocomplete="on"
+    placeholder=" SEARCH  "
+  />
+</div>
+<h1 class="text-center mt-3">les commandes du...{{ searchText }}</h1>
+<table class="table container mt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#Numero</th>
+      <th scope="col">Numero Commande</th>
+
+      <th scope="col">date</th>
+      <th scope="col">etat</th>     
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let com of commande | filter: searchText; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ com.numCommande }}</td>
+      <td>{{ com.dateCommande | date: "y:dd:m" }}</td>
+      <td>{{ com.isEtatCommande }}</td>
+
+      
+
+      <td
+        class="btn btn-danger text-danger"
+        *ngIf="com.isEtatCommande == 'annuler' OR com.isEtatCommande == 'en cours'"
+        
+        (click)="cancelCommand(com.id, 'valider')"
+      >
+        Valider
+      </td>
+      <td
+        class="btn btn-danger text-danger"
+        *ngIf="com.isEtatCommande == 'valider'"
+        (click)="cancelCommand(com.id, 'annuler')"
+      >
+        Annuler
+      </td>
+
+      <td class="btn btn-primary text-danger">Details</td>
+    </tr>
+  </tbody>
+</table> 
+
+  <div class="test" >
+<button [routerLink]="['/Admin/commandes/zone',z.id]" class="btn btn-primary" *ngFor="let z of zones">{{z.nomZone}}</button>
+</div>
+

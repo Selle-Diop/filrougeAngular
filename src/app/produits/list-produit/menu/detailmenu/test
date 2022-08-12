@@ -1,0 +1,116 @@
+<!-- <div class="container bg-primary "style="height: 45rem;">
+<div class="card mt-3 " style="width: 30rem;" >
+ 
+  <img class="card-img-top"  
+  [src]="transform(prmenu.image)"  alt="CheeseCard image cap">
+  <div class="card-body ">
+    
+
+    <span>{{prmenu.nom}}</span>
+    <h1>produit</h1>
+
+  </div>
+</div>
+<a  href="#" class="btn btn-small  text-white  mt-3"style="background-color: #DB6230;width: 100%;">Ajouter au Panier</a>
+</div> -->
+<div class="container border -3 mt-1" style="height: 50rem">
+  <h2 class="text-center">Details Menu</h2>
+  <div class="detail d-flex">
+    <img style="height: 10em" [src]="transform(prmenu.image)" alt="" />
+    <div id="vb" class="border border-2">
+      <h3 class="mt-5">Nom: {{ prmenu.nom }}</h3>
+      <h3 class="mt-5">Prix: {{ prmenu.prix }} FCFA</h3>
+    </div>
+  </div>
+  <div class="btne mt-2">
+    <!-- <app-quantite></app-quantite> -->
+    <button type="button" class="bb btn btn-primary" [disabled]="isSelected('false')">
+      Ajouter dans <i class="fa-solid fa-cart-shopping"></i>
+    </button>
+  </div>
+  <div class="complements  d-flex justify-content-between mt-5 bg-primary "style=" height: 30rem">
+      <!-- <a href="" class="btn btn-success">Frites</a> -->
+      <!-- <a href="" class="btn btn-secondary">boisson</a>
+        <a href="" class="btn btn-danger">burger</a> -->
+        
+        
+        
+        <!-- <h5 class="">Voici les complements disponible pour votre commande:</h5> -->
+        
+        
+        <h1>Frites</h1>
+        <div class="card border border-2 d-flex flex-direction-column bg-danger " style="width: 18rem; height: 7rem"*ngFor="let item of prmenu.Frites">
+        <!-- modifier la taille de la classe c -->
+        
+        <!-- <app-quantite></app-quantite> -->
+        <div class=" text-center ">
+            
+            <img id="image" [src]="transform(item.fritesportions.image)" class="card-img-top mt-3" alt="frite" />
+        </div>
+        <div>{{ item.fritesportions.nom }}</div>
+        <p>Quantite:{{  item.quantite }}</p>
+      </div>
+
+      <!-- burger -->
+      <h1>Burger</h1>
+      <div class="card border border-2" style="width: 18rem; height: 7rem"*ngFor="let itemB of prmenu.Burgers">
+        <!-- modifier la taille de la classe c -->
+        
+        <!-- <app-quantite></app-quantite> -->
+        <div class=" text-center ">
+            
+            <img id="image" [src]="transform(itemB.burgers.image)" class="card-img-top mt-3" alt="burger" />
+        </div>
+        <div>
+        <div>{{ itemB.burgers.nom }}</div>
+        <p>Quantite:{{  itemB.quantite }}</p>
+        </div>
+      </div>
+
+      <h1>Boisson </h1>
+      <div  style="width: 18rem; height: 7rem"*ngFor="let itemBoi of prmenu.Tailles">
+        
+          
+       <span>Quantite: {{  itemBoi.quantite }}</span> {{itemBoi.tailles.libelle}}
+  
+    
+        <!-- modifier la taille de la classe c -->
+        
+        <!-- <app-quantite></app-quantite> -->
+        <div class="card border border-2" *ngFor=" let itemI of itemBoi.tailles.tailleBoissons">
+            
+            <img id="image" [src]="transform(itemI.boisson.image)" class="card-img-top mt-1" alt="frite" />
+            <span>{{itemI.boisson.nom}}</span>
+            <span>{{itemI.boisson.prix}}frcs</span>
+
+            
+
+            <!-- <input type="number"  readonly value="false" (change)="isChecked(itemBoi.quantite)"> -->
+            
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+                <div class="d-flex mb-4" style="max-width: 300px">
+                  <button class="btn btn-primary px-3 me-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                  <div class="form-outline">
+                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
+                    <label class="form-label" for="form1">Quantity</label>
+                  </div>
+
+                  <button class="btn btn-primary px-3 ms-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+        <!-- <div>{{ itemBoi.tailles.libelle }}</div> -->
+        
+      </div>
+
+      
+    
+  </div>
+</div>
+
